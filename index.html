@@ -154,6 +154,7 @@ nav.tabs button.on::before{content:"";position:absolute;top:-7px;left:50%;transf
 .toast.show{transform:none}
 .toast b{display:block;font-size:11px;letter-spacing:.1em;color:#FFD15C;margin-bottom:3px}
 .bell{display:flex;align-items:center;justify-content:space-between;gap:10px;font-size:12.5px;color:var(--ink2);margin-top:8px;padding:8px 11px;border:1px dashed #B9C0CF;border-radius:12px}
+.admEntry{width:100%;margin-top:8px;padding:9px;font-size:13px;font-weight:700;color:#8A93A8;background:none;border-radius:12px;text-align:center}
 .bell button{background:var(--ink);color:#fff;padding:8px 12px;border-radius:10px;font-size:13px;font-weight:700;white-space:nowrap}
 
 /* admin */
@@ -204,6 +205,7 @@ nav.tabs button.on::before{content:"";position:absolute;top:-7px;left:50%;transf
       <span>새 공지가 올라오면 이 화면에서 알림을 받습니다.</span>
       <button id="bellBtn">알림 켜기</button>
     </div>
+    <button class="admEntry" id="admEntry">⚙ 운영자 화면</button>
   </section>
 
   <!-- SCORE -->
@@ -422,6 +424,7 @@ $('fClass').onchange=()=>{const g=$('fGrade').value,c=+$('fClass').value;if(!g||
   f.innerHTML=`${g} ${c}반은 <span class="disp" style="font-size:22px">${t.name}</span> 팀입니다`};
 
 /* ---------------- 화면 전환 ---------------- */
+$('admEntry').onclick=()=>go('admin');
 function go(v){document.querySelectorAll('.view').forEach(x=>x.classList.toggle('on',x.id==='v-'+v));
   document.querySelectorAll('nav.tabs button').forEach(b=>b.classList.toggle('on',b.dataset.go===v));window.scrollTo(0,0)}
 document.addEventListener('click',e=>{const g=e.target.closest('[data-go]');if(g)go(g.dataset.go)});
